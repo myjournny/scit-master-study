@@ -27,10 +27,12 @@ from (select
 from employees
 order by hr$ desc)
 where rownum <= 5;
+```
 
-Q3. 15~25위 ranking 조회
+## Q3. 15~25위 ranking 조회
 
-sql
+### 코드
+```sql
 select *
 from(select rownum as rank, 사번, 성명, 직무, 연봉, 시급$, "시급(원)", 근무년차, 입사일
 from(select
@@ -45,3 +47,4 @@ from(select
 from employees
 order by 시급$ desc))
 where rank between 15 and 25;
+```
