@@ -1,4 +1,18 @@
-## Q2. hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
+# Oracle 단일행 함수 실습
+
+## 목차
+1. [시급 기준 Top 5 랭킹](#q2-시급-기준-top-5-랭킹)
+2. [15~25위 랭킹 조회](#q3-15-25위-랭킹-조회)
+3. [특정 순위 시급 조회](#q4-특정-순위-시급-조회)
+4. [입사 요일 통계](#q5-입사-요일-통계)
+5. [부서별 급여 순위](#q7-부서별-급여-순위)
+6. [조건부 급여 인상](#q8-조건부-급여-인상)
+
+## Q2. 시급 기준 Top 5 랭킹
+### 문제
+hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
+
+### 코드
 ```sql
 select rownum as rank, id, fullname, job, yy$, hr$, num_yy
 from (select
@@ -9,16 +23,14 @@ from (select
         to_char(round(salary), '$999,999') as mm$,
         to_char(round(salary / 20), '$999,999') as day$,
         to_char(round(salary / 20 / 8), '$999,999') as HR$,
-     
-trunc(months_between(sysdate,hire_date) / 12) || 'years' as num_yy
+        trunc(months_between(sysdate,hire_date) / 12) || 'years' as num_yy
 from employees
 order by hr$ desc)
 where rownum <= 5;
 
+Q3. 15~25위 ranking 조회
 
-## Q3. 15~25위 ranking 조회
-
-```sql
+sql
 select *
 from(select rownum as rank, 사번, 성명, 직무, 연봉, 시급$, "시급(원)", 근무년차, 입사일
 from(select
