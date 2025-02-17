@@ -8,11 +8,11 @@
 5. [부서별 급여 순위](#q7-부서별-급여-순위)
 6. [조건부 급여 인상](#q8-조건부-급여-인상)
 
-### Q1. 시급 기준 Top 5 랭킹
-#### 문제
+## Q1. 시급 기준 Top 5 랭킹
+### 문제
 hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
 
-#### 코드
+### 코드
 ```sql
 select rownum as rank, id, fullname, job, yy$, hr$, num_yy
 from (select
