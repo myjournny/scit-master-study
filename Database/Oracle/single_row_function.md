@@ -1,4 +1,4 @@
-Q2. hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
+## Q2. hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
 ```sql
 select rownum as rank, id, fullname, job, yy$, hr$, num_yy
 from (select
@@ -15,7 +15,7 @@ from employees
 order by hr$ desc)
 where rownum <= 5;
 
-Q3. 15~25위 ranking 조회
+## Q3. 15~25위 ranking 조회
 ```sql
 select *
 from(select rownum as rank, 사번, 성명, 직무, 연봉, 시급$, "시급(원)", 근무년차, 입사일
