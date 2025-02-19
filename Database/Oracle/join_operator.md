@@ -26,7 +26,7 @@ and co.region_id = re.region_id
 and e.first_name in('Susan','Pat','Adam');
 ```
 
-![oracle_join_q1 result](/images/oracle_join_q1_result.png)
+![oracle join q1 result](/images/oracle_join_q1_result.png)
 
 ## Q2. HR세션에서 join을 사용하지 않고 하기 요구사항을 확인하세요. (→outer join 필요성 확인)
 
@@ -37,7 +37,7 @@ select * from employees
 where department_id is null;
 ```
 
-![oracle_join_q2 result1](/images/oracle_join_q2_result.png)
+![oracle join q2 result1](/images/oracle_join_q2_result.png)
 
 2)부서 중 직원이 한 명도 배치되지 않는 부서명을 확인하시오.
 
@@ -49,7 +49,7 @@ minus
 select department_id from employees);
 ```
 
-![oracle_join_q2 result2](/images/oracle_join_q2_result2.png)
+![oracle join q2 result2](/images/oracle_join_q2_result2.png)
 
 ## Q3. outer join을 활용하여 하기 요구사항을 확인시오.
 
@@ -66,7 +66,7 @@ FROM employees e, departments d
 where e.department_id = d.department_id(+); //오라클만의 키워드
 ```
 
-![oracle_join_q3 result1](/images/oracle_join_q3_result.png)
+![oracle join q3 result1](/images/oracle_join_q3_result.png)
 
 2)부서 리스트와 함께 부서 중 직원이 한 명도 배치되지 않는 부서명도 함께 확인하시오.
 
@@ -76,7 +76,7 @@ FROM employees e
 full join departments d on e.department_id = d.department_id;
 ```
 
-![oracle_join_q3 result2](/images/oracle_join_q3_result2.png)
+![oracle join q3 result2](/images/oracle_join_q3_result2.png)
 
 ## Q4. HR 세션에서 현재 우리회사 부서가 진출해 있는 도시 현황 총계를 출력하세요.
 
@@ -88,4 +88,4 @@ FROM locations l
 LEFT JOIN departments d ON l.location_id = d.location_id;
 ```
 
-![oracle_join_q4 result4](/images/oracle_join_q4_result.png)
+![oracle join q4 result](/images/oracle_join_q4_result.png)
