@@ -14,7 +14,6 @@ HR 스키마의 테이블들을 활용하여 실제 업무에서 자주 사용�
 ## Q1. 시급 기준 Top 5 랭킹
 hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
 
-### 코드
 ```sql
 select rownum as rank, id, fullname, job, yy$, hr$, num_yy
 from (select
@@ -35,7 +34,6 @@ where rownum <= 5;
 
 ## Q2. 15~25위 ranking 조회
 
-### 코드
 ```sql
 select *
 from(select rownum as rank, 사번, 성명, 직무, 연봉, 시급$, "시급(원)", 근무년차, 입사일
@@ -58,7 +56,6 @@ where rank between 15 and 25;
 
 ## Q3. 최저 시급기준으로 ranking 조회(5~8위, 3위, 13위, 23위)
 
-### 코드
 ```sql
 select *
 from(select rownum as rank, 사번, 성명, 직무, 연봉, 시급$, "시급(원)", 근무년차, 입사일
@@ -80,7 +77,6 @@ where rank = 3 or rank between 5 and 8 or rank = 13 or rank = 23;
 
 ## Q4. hr의 employees를 활용하여 가장 입사를 많이 한 요일정보를 확인하세요.
 
-### 코드
 ```sql
 select
 to_char(hire_date,'day') as 입사요일,
