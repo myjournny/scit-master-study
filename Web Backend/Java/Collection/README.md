@@ -23,21 +23,28 @@ Java의 Collection Framework를 활용한 유저 관리 시스템 실습 코드�
 - 이름 기준 오름차순 정렬
 - 전체 유저 목록 출력
 
+## 기술 스택
+### Backend
+- Spring Boot
+- Spring Data JPA
+- MySQL Database
+
+### Frontend
+- Thymeleaf
+- jQuery
+- HTML/CSS
+
 ## 코드 구조
-### User 클래스
-- 유저 정보 데이터 모델
-- private 필드와 getter/setter 구현
-- toString() 메서드 오버라이드
+### Entity & DTO
+- TodoEntity: JPA 엔티티 클래스
+- TodoDTO: 데이터 전송 객체
 
-### User_Method 클래스
-- ArrayList로 유저 목록 관리
-- 유저 등록/조회 기능 구현
-- NameComparator 내부 클래스 구현
+### Controller
+- MainController: 메인 페이지 라우팅
+- TodoController: Todo CRUD 처리
 
-### User_Main 클래스
-- 메인 실행 클래스
-- 메뉴 기반 사용자 인터페이스
+### Repository & Service
+- TodoRepository: JPA 리포지토리 인터페이스
+- TodoService: 비즈니스 로직 처리
 
-## 실행 화면
-![User](/images/User.gif)
-
+## 실행 결과
