@@ -1,7 +1,7 @@
 # Web Backend Study
 
 ## Period & Score
-### 1. JAVA 기초
+### 1. JAVA
 - 학습 기간: 2024/10/08 ~ 2024/11/08
 - 평가 결과: 84/100 (Pass) - 2024/11/08 
 ![java_exam_result](/images/java_exam_result.png)
