@@ -28,5 +28,5 @@ Java의 2차원 배열을 활용한 극장 좌석 예약 프로그램 실습 코
 - 좌석 배열 관리 (private int[][] seats)
 - 좌석 예약 및 조회 기능 구현 
 
-### 실행 결과
+## 실행 결과
 ![Theater](/images/Theater.gif)
