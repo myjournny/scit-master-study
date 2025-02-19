@@ -1,6 +1,5 @@
 # 회원가입 페이지 구현
-
-HTML5, CSS3, JavaScript를 이용한 회원가입 페이지 구현 실습 코드입니다.
+HTML5, CSS3, JavaScript를 이용한 회원가입 웹 문서 구현 실습 코드입니다.
 
 ## 구현 화면
 ![joinform result](/images/joinform_result.jpg)
