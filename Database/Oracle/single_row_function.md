@@ -105,8 +105,8 @@ order by department_id asc, salary desc;
 *요구사항-1: 30번과 50번 부서 소속 직원에서 급여 10% 인상
 *요구사항-2: 전 사원 기준 set 출력 or 인상된 직원 set 출력
 
-```sql
 1) 전사원 기준 set 출력
+```sql
 select
     first_name,
     department_id,
@@ -122,10 +122,11 @@ select
     end as stat
 from employees
 order by salary desc;
-
+```
 ![oracle_single row function_q6 result1](/images/oracle_singlerow_q6_result1.png)
 
 2) 인상된 직원 set 출력
+```sql
 select
     first_name,
     department_id,salary,
