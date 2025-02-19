@@ -36,7 +36,11 @@ jQuery와 Spring Boot를 활용한 할 일 관리 웹 화면 실습 코드입니
 
 ## 실행 화면
 - 첫 화면
+
 ![todolist result](/images/todolist_result.png)
+
 - To do list
+
 ![todolist result2](/images/todolist_result2.png)
+
 
