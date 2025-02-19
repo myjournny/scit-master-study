@@ -1,28 +1,33 @@
-Database Study
-===========
+# Database Study
 
-Period & Score
----------
-- Study Period: 2024/09/20 ~ 2024/10/07
-- Assessment: 88/100 (Pass) - 2024/11/01
+## Period & Score
+- 학습 기간: 2024/09/20 ~ 2024/10/07
+- 평가 결과: 88/100 (Pass) - 2024/11/01
 ![Database_exam_result](/images/Database_exam_result.png)
 
-Main Study Contents
----------
-### 1. Oracle Database
-- Basic SQL (SELECT, WHERE, ORDER BY)
-- Data Grouping (GROUP BY, HAVING)
-- JOIN Operations
-- Set Operations (UNION, MINUS, INTERSECT) 
-- Subquery
-- Data Manipulation (INSERT, UPDATE, DELETE)
-- Data Definition (CREATE, ALTER, DROP)
-- Database Objects (VIEW, INDEX)
+## Contents
 
-### 2. MySQL
-- Database & Table Management
-- Constraints
-- Schema Modification (ALTER)
-- Data Manipulation (INSERT, UPDATE, DELETE)
-- Views & Indexes
-- User Creation & Privileges
+### 1. Oracle 실습
+- 단일행 함수
+  - 시급 기준 순위 분석
+  - 입사일 기준 통계 분석
+  - 조건부 급여 인상 시뮬레이션
+- JOIN 연산
+  - 다중 테이블 조인을 통한 데이터 통합
+  - OUTER JOIN을 활용한 누락 데이터 분석
+  - 그룹별 집계 및 통계
+
+### 2. MySQL 실습
+- 데이터베이스 관리
+  - 국가별 도시 정보 분석
+  - 언어 사용 현황 분석
+  - 지역별 통계 분석
+- 데이터베이스 객체 관리
+  - 뷰 생성 및 활용
+  - 인덱스 설계 및 최적화
+
+### 3. 데이터베이스 모델링
+- E-커머스 플랫폼 설계
+  - ERD 작성
+  - 테이블 정의서 작성
+  - 제약조건 설계
