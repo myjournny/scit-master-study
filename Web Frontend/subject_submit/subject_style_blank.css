@@ -1,0 +1,72 @@
+/* CSS */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    min-height: 700px;
+    /* 최소 높이 */
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group>div {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+label {
+    color: #555;
+    font-weight: 900;
+}
+
+input,
+select {
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    width: 30px;
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+button {
+    width: 25%;
+    background: rgb(15, 219, 22);
+    color: white;
+    border: none;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: green;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제 제출</title>
+    <!-- CSS 외부파일 적용 -->
+    <link rel="StyleSheet" href="./subject_style_blank.css">
+    <!-- JS 외부파일 적용 -->
+    <script src="./subject_js_blank.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- code 작성 -->
+        <h1>과제 제출</h1>
+        <form id="AssignmentSubmitForm">
+            <!-- 과목명 -->
+            <div class="form-group">
+                <label>과목명</label><br>
+                <select id="subjectName" name="subjectName">
+                    <option value="">과목을 선택하세요</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+
+            <!-- 분반 -->
+            <div class="form-group">
+                <label>분반</label><br>
+                <input type="radio" id="A" name="className" value="A">
+                <label class="option-label" for="A">A</label>
+
+                <input type="radio" id="B" name="className" value="B">
+                <label class="option-label" for="B">B</label>
+
+                <input type="radio" id="C" name="className" value="C">
+                <label class="option-label" for="C">C</label>
+            </div>
+
+            <!-- 이름/ 과제 제목/ 과제 설명 -->
+            <div class="form-group">
+                <label for="studentName">이름</label><br>
+                <input type="text" id="studentName" name="studentName" placeholder="이름을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="assignmentName">과제 제목</label><br>
+                <input type="text" id="assignmentName" name="assignmentName" placeholder="과제 제목을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="assignmentDescription">과제 설명</label><br>
+                <input type="text" id="assignmentDescription" name="assignmentDescription" placeholder="간단한 설명을 입력하세요">
+            </div>
+
+
+            <!-- 파일 업로드 -->
+            <div class="form-group">
+                <label>파일 업로드</label>
+                <input type="file" id="file" name="file">
+            </div>
+            <div class="submit-btn">
+                <button type="button" id="submitBtn">제출하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
