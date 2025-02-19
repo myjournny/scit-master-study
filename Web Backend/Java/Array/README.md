@@ -20,4 +20,4 @@ Java의 2차원 배열을 활용한 극장 좌석 예약 프로그램 실습 코
  - 예약 불가: "x행x열은 예약된 좌석입니다" 출력
 
 ### 실행 결과
-![Theater](/images/Theater.mp4)
+![Theater](/images/Theater.gif)
