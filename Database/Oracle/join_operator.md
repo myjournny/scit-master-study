@@ -9,8 +9,6 @@ HR 스키마의 테이블들을 활용하여 실제 업무에서 자주 사용�
 3. [Outer Join 활용](#q3-outer-join을-활용하여-하기-요구사항을-확인시오)
 4. [도시별 부서 현황](#q4-hr-세션에서-현재-우리회사-부서가-진출해-있는-도시-현황-총계를-출력하세요)
 
-
-[DQL] Join
 ## Q1. HR 세션에서 하기 대상인원에 대한 요구사항을 출력하세요.
 
 *대상 직원명(first_name) : Susan, Pat, Adam
@@ -37,7 +35,6 @@ and e.first_name in('Susan','Pat','Adam');
 
 ![oracle_join_q1 result](/images/oracle_join_q1_result.png)
 
-[DQL] OUTER JOIN
 ## Q2. HR세션에서 join을 사용하지 않고 하기 요구사항을 확인하세요. (→outer join 필요성 확인)
 
 1)직원 중 부서 배치가 안 된 사람은 누구인지 확인하시오.
