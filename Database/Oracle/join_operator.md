@@ -55,8 +55,8 @@ select department_id from employees);
 
 1)직원 리스트와 함꼐 직원 중 부서배치가 안 된 사람은 누구인지 확인하시오.
 
-```sql
 <표준> LEFT JOIN 
+```sql
 SELECT *
 FROM employees e
 left join departments d on e.department_id = d.department_id;
