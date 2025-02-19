@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" >
+
+<head>
+<meta charset="UTF-8">
+<title>My Todo List</title>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<style>
+
+</style>
+<script th:src="@{/script/jquery-3.7.0.min.js}"></script>
+<script th:inline="javascript">
+$(function (){
+	$('#todoBtn').on('click', function() {
+		let todo = $('#todo').val();
+		if(todo.length <= 1) {
+			alert('Todo 데이터를 입력해 주세요');
+			$('#todo').focus();
+			return;
+		}
+		$('#todoForm').submit();
+	});
+	
+	$('.deleteBtn').on('click', function(event) {
+		event.stopImmediatePropagation()
+		let seqno = $('.deleteBtn').attr('data-seqno');
+		location.href=`/todo/delete?seqno=${seqno}`
+	})
+});
+</script>
+</head>
+<body>
+	<div class="container">
+	
+	<div class="top">
+	   <a th:href="@{/}"><img th:src="@{/images/logo.png}" alt="logo" style="width: 30px;"></a>
+	   <h2>[ Todo List ]</h2>
+	</div>
+	<form id="todoForm" th:action="@{/todo/insert}" method="POST"> 
+		<table>
+			<tr>
+				<th>
+					<label for="regdate">작성일</label>
+				</th>
+				<td>
+					<input type="date" id="regdate" name="regdate" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					<label for="status">상태</label> 
+				</th>
+				<td>
+					<input id="status" type="radio" name="status" value="진행" checked>진행
+					<input type="radio" name="status" value="지연" >지연
+					<input type="radio" name="status" value="완료" >완료
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label for="importance">중요도</label>
+				</th>
+				<td>
+					<select name="importance" id="importance">
+						<option selected>높음</option>
+						<option>보통</option>
+						<option>낮음</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label for="categories">분류</label>
+				</th>
+				<td>
+					<input id="categories" type="radio" name="categories" value="개인" checked>개인
+					<input type="radio" name="categories" value="회사" checked>회사
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<label for="todo">To Do</label>
+				</th>
+				<td>
+					<textarea id="todo" rows="5" cols="80" name="todo"></textarea>
+				</td>
+			</tr>
+						
+			<tr>
+				<th colspan="2">
+					<input type="button" id="todoBtn" value="할일 등록">&nbsp;
+					<input type="reset" value="취소">
+				</th>
+			</tr>		
+		</table>
+	</form>
+	
+	<h3>(todo 보기)</h3>
+	<th:block th:if="${list.size() != 0 || not list.isEmpty()} "> 
+	<div class="choice">
+		<form th:action="@{/todo/selectChoice}" method="POST">
+			<label> 중요도 : 
+				<select name="importance">
+					<option selected>높음</option>
+					<option>보통</option>
+					<option>낮음</option>
+				</select>
+			</label> &nbsp;
+			<label> 분류 :
+				<select name="categories">
+					<option selected>개인</option>
+					<option>회사</option>
+				</select>
+			</label> &nbsp;	
+			<input type="submit" id="todoBtn" value="조회">	
+		</form>
+	</div>
+	
+	<div id="result">
+        <table border ="1">
+            <tr class="mytodo">
+                <th class="w100">날짜</th>
+                <th class="w100">분류</th>
+                <th class="w100">상태</th>
+                <th class="w100">중요도</th>
+                <th class="w300">해야 할 일</th>
+                <th class="w100">비고</th>
+            </tr>
+            <tr th:each="item : ${list}">
+                <td class="w100" th:text="${item.regdate}"></td>
+                <td class="w50" th:text="${item.categories}"></td>
+                <td class="w100" th:text="${item.status}"></td>
+                <td class="w100" th:text="${item.importance}"></td>
+                <td class="w500" th:text="${item.todo}"></td>
+                <td class="w50">
+                    <input type="button" class="deleteBtn" th:data-seqno="${item.seqno}" value="삭제">
+                </td>
+            </tr>
+        </table>
+	</div>
+	</th:block>
+	</div>
+</body>
+</html>

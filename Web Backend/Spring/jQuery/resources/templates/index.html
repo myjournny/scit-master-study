@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" >
+
+<head>
+<meta charset="UTF-8">
+<title>My Todo List</title>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<script th:src="@{/script/jquery-3.7.0.min.js}"></script>
+<script th:inline="javascript">
+$(function (){
+	$('#todoBtn').on('click', function() {
+		let todo = $('#todo').val();
+		if(todo.length <= 1) {
+			alert('Todo 데이터를 입력해 주세요');
+			$('#todo').focus();
+			return;
+		}
+		$('#todoForm').submit();
+	});
+	
+	$('#deleteBtn').on('click', function() {
+		let seqno = $('#deleteBtn').attr('data-seqno');
+		alert(seqno);
+	})
+});
+</script>
+</head>
+<body>
+	<div class="container">
+	
+	<div class="top">
+	   <img th:src="@{/images/logo.png}" alt="logo" style="width: 30px;">
+	   <h2>[ Todo List ]</h2>
+	</div>
+        <a th:href="@{/todo/selectAll}">Todo List 추가 및 보기</a>
+	</div>
+</body>
+</html>
