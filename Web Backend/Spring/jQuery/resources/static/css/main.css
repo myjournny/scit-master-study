@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+div.top {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.top > h2{ 
+   margin-left:15px;
+}
+table.title {
+   width:100px;
+}
+	
+div.container {
+	width: 1000px;
+	margin : 0 auto;
+}
+div.container > h2 {
+	text-align : center;
+}
+div.container > a {
+	text-decoration: none;
+	display: inline-block;
+	width : 1000px;
+	text-align: center;
+}
+div.container > a:hover {
+	font-weight : bold;
+}
+/* *************** todo 목록 *************** */
+span.result {
+	font-size: 0.7em;
+}
+table {
+	width: 1000px;
+	border : 1px solid lightgray;
+	border-collapse : collapse;
+}
+table th {
+	width: 200px;
+	height : 30px;
+	background-color : #eee;
+}
+
+td, th {
+	padding:5px 0;
+}
+
+td.center {
+	text-align : center;
+}
+div.top {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.top > h2{ 
+   margin-left:15px;
+}
+table.title {
+   width:100px;
+}
+.w50 {
+    width : 50px;
+    text-align: center;
+}
+
+.w100 {
+    width : 100px;
+    text-align: center;
+}
+.w300 {
+	width : 300px;
+}
