@@ -12,7 +12,6 @@ HR 스키마의 테이블들을 활용하여 실제 업무에서 자주 사용�
 6. [조건부 급여 인상](#q6-hremployees를-활용하여-하기-요구사항을-출력하세요)
 
 ## Q1. 시급 기준 Top 5 랭킹
-### 문제
 hr의 사원정보(employees)에서 시급 기준 Top 5 랭킹 리포트를 구성하세요.
 
 ### 코드
@@ -58,6 +57,7 @@ where rank between 15 and 25;
 
 
 ## Q3. 최저 시급기준으로 ranking 조회(5~8위, 3위, 13위, 23위)
+
 ### 코드
 ```sql
 select *
@@ -79,6 +79,7 @@ where rank = 3 or rank between 5 and 8 or rank = 13 or rank = 23;
 ![oracle_single row function_q3 result](/images/oracle_singlerow_q3_result.png)
 
 ## Q4. hr의 employees를 활용하여 가장 입사를 많이 한 요일정보를 확인하세요.
+
 ### 코드
 ```sql
 select
@@ -93,6 +94,7 @@ order by 2 desc;
 
 ## Q5. hr.employees를 활용하여 하기 요구사항을 출력하세요.
 *salary 기준으로 ranking 출력하되 각 부서별로 순위를 부여하세요.
+
 ```sql
 select employee_id,first_name,salary,department_id,
 rank() over(partition by department_id order by salary desc) as rank_sal,
