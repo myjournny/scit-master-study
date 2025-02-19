@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>치킨 주문 양식</title>
+  <script src="./order_blank_js.js"></script>
+  <link rel="stylesheet" href="./order_blank_style.css">
+</head>
+
+<body>
+  <div class="order-container">
+    <h1>치킨 주문하기</h1>
+    <form id="chickenOrderForm">
+      <!-- 치킨 종류 -->
+      <div class="form-group">
+        <label for="chickenType">치킨 종류:</label>
+        <select id="chickenType" name="chickenType" required>
+          <option value="">-- 치킨 종류를 선택하세요 --</option>
+          <option value="18000">후라이드 치킨 (18,000원)</option>
+          <option value="19000">양념 치킨 (19,000원)</option>
+          <option value="20000">반반 치킨 (20,000원)</option>
+        </select>
+      </div>
+
+      <!-- 수량 -->
+      <div class="form-group">
+        <label for="quantity">수량:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="1 이상" required>
+      </div>
+
+      <!-- 추가 메뉴 -->
+      <div class="form-group">
+        <label>추가 메뉴:</label>
+        <div>
+          <input type="checkbox" id="extraRadish" name="extraOption" value="1000">
+          <label class="option-label" for="extraRadish">무 추가 (+1,000원)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="extraCola" name="extraOption" value="2000">
+          <label class="option-label" for="extraCola">콜라 추가 (+2,000원)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="extraFries" name="extraOption" value="3000">
+          <label class="option-label" for="extraFries">감자튀김 (+3,000원)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="extraSotteok" name="extraOption" value="4000">
+          <label class="option-label" for="extraSotteok">소떡소떡 (+4,000원)</label>
+        </div>
+      </div>
+
+      <!-- 배달 방식 -->
+      <div class="form-group">
+        <label>배달 방식:</label>
+        <div>
+          <input type="radio" id="deliveryBasic" name="deliveryType" value="0" checked>
+          <label class="option-label" for="deliveryBasic">알뜰배달 (무료)</label>
+        </div>
+        <div>
+          <input type="radio" id="deliveryPremium" name="deliveryType" value="1000">
+          <label class="option-label" for="deliveryPremium">한집배달 (+1,000원)</label>
+        </div>
+      </div>
+
+      <button type="button" id="orderBtn">주문하기</button>
+    </form>
+    <div id="error" class="error"></div>
+  </div>
+
+  <!-- 주문하기 버튼을 클릭했을때 출력되는 Modal 영역 -->
+  <div class="modal" id="receiptModal">
+    <div class="modal-content">
+      <button class="close" id="closeModal">X</button>
+      <h2>주문 영수증</h2>
+      <div class="receipt-item">
+        <span class="key">치킨 종류:</span> <span id="receiptChickenType"></span>
+      </div>
+      <div class="receipt-item">
+        <span class="key">수량:</span> <span id="receiptQuantity"></span>
+      </div>
+      <div class="receipt-item">
+        <span class="key">추가 메뉴:</span>
+        <div id="receiptExtras" class="indented"></div>
+      </div>
+      <div class="receipt-item">
+        <span class="key">배달 방식:</span>
+        <div id="receiptDelivery" class="indented"></div>
+      </div>
+      <div class="total-price" id="totalPriceDisplay"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
