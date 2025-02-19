@@ -1,17 +1,15 @@
 # Web Backend Study
 
 ## Period & Score
-- 학습 기간:
-  1) JAVA (2024/10/08~2024/11/08)
-  JAVA 과목 평가 결과: 84/100 (Pass) - 2024/11/08 
+### 1. JAVA 기초
+- 학습 기간: 2024/10/08 ~ 2024/11/08
+- 평가 결과: 84/100 (Pass) - 2024/11/08 
 ![java_exam_result](/images/java_exam_result.png)
-  2) Web Backend (2024/11/25~2025/01/24)
-  IT 종합역량 평가 결과: 100/100 (Pass) - 2025/01/24
+
+### 2. Spring Framework
+- 학습 기간: 2024/11/25 ~ 2025/01/24
+- 평가 결과: 100/100 (Pass) - 2025/01/24
 ![it_exam_result](/images/it_exam_result.png)
-
-
-- 과목 평가 결과: **100/100** (Pass) - 2024/12/27
-![Frontend_exam_result](/images/Frontend_exam_result.png)
 
 ## Contents
 
