@@ -22,7 +22,6 @@ public class Theater {
 					break;
 				case 0:
 					tm.printText(1);
-//					System.exit(0); 
 					return;
 				default:
 					tm.printText(2);
