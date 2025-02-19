@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- CSS 파일 적용 -->
+	<link rel="StyleSheet" href="./join_blank.css">
+	<!-- JS 파일 적용 -->
+	<script src="./join_blank.js"></script>
+</head>
+
+<body>
+	<form action="" name="joinForm" method="get" onsubmit="return formCheck()">
+		<table>
+			<tr>
+				<td colspan="2" id="header"><span class="red">(*)</span>부분은 필수 입력사항 입니다.</td>
+			</tr>
+			<tr>
+				<th>아이디(ID)<span class="red">(*)</span></th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="text" id="userid" name="userid">
+					<br>
+					3~12자리 영문, 숫자 조합(대소문자 구분 없으며 특수기호 사용은 불가)
+				</td>
+
+			</tr>
+			<tr>
+				<th>이름<span class="red">(*)</span></th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="text" id="name" name="name">
+					<br>
+					2~4자리 영문, 숫자 조합(대소문자 구분 없으며 특수기호 사용은 불가)
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호<span class="red">(*)</span></th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="password" id="userpw" name="userpw">
+					5~8자리 문자와 숫자를 이용하여 만드실 수 있습니다
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인<span class="red">(*)</span></th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="password" id="checkpw">
+					영문은 대소문자를 구분합니다.
+				</td>
+			</tr>
+			<tr>
+				<th>이메일<span class="red">(*)</span></th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="text" id="emaillocal" name="emaillocal">
+					@
+					<!-- 입력태그 생성 -->
+					<input type="text" id="emaildomain" name="emaildomain">
+					<!-- 옵션태그 생성 -->
+					<!-- 선택항목:  google.com , naver.com , daum.net -->
+					<select id="selectDomain" onchange="setDomain()">
+						<option value="" selected>선택해주세요</option>
+						<option value="naver.com">naver.com</option>
+						<option value="gmail.com">gmail.com</option>
+						<option value="daum.com">daum.net</option>
+						<option value="nate.com">nate.com</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td>
+					<!-- 입력태그 생성 -->
+					<input type="number" id="zipstart" name="zipstart">
+					-
+					<!-- 입력태그 생성 -->
+					<input type="number" id="zipstart" name="zipend">
+					<!-- 버튼 생성 -->
+					<button id="searchaddress">우편번호 검색</button>
+					<br>
+					<!-- 입력태그 생성 -->
+					<input type="text" id="address" name="address">
+					<br>
+					나머지 주소
+					<!-- 입력태그 생성 -->
+					<input type="text" id="addressdetail" name="addressdetail">
+				</td>
+			</tr>
+			<tr>
+				<th>휴대폰 번호<span class="red">(*)</span></th>
+				<td>
+					<!-- SELECT 태그 생성 -->
+					<select id="phonenumberstart" name="phonenumberstart" onchange="setDomain()">
+						<!-- 선택항목: 선택 , 010 , 011 , 017 , 019 -->
+						<option value="" selected>선택</option>
+						<option value="010">010</option>
+						<option value="011">011</option>
+						<option value="017">017</option>
+						<option value="019">019</option>
+					</select>
+					<!-- 입력태그 생성 -->
+					<input type="number" id="phonenumbermid" name="phonenumbermid">
+					-
+					<input type="number" id="phonenumberend" name="phonenumberend">
+					<!-- RADIO 태그 생성 -->
+					<!-- 선택항목: SK , KT , LG -->
+					<input type="radio" name="carrier" value="sk">
+					<label for="sk">SK</label>
+					<input type="radio" name="carrier" value="kt">
+					<label for="kt">KT</label>
+					<input type="radio" name="carrier" value="lg">
+					<label for="lg">LG</label>
+				</td>
+			</tr>
+			<tr>
+				<th>광고 수신동의</th>
+				<td>
+					<!-- CHECKBOX 태그 생성 -->
+					<input type="checkbox" name="ademail" checked> 광고 메일을 수신합니다. <br>
+					<input type="checkbox" name="adsms" checked> 광고 SMS 수신합니다.
+				</td>
+			</tr>
+			<tr id="join">
+				<td colspan="2">
+					<input type="submit" value="가 입"> &nbsp;&nbsp;&nbsp;&nbsp; <input type="reset" value="다시입력">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+}
+
+th {
+    width: 120px;
+    border: 1px solid;
+    padding: 15px;
+    text-align: left;
+    font-weight: normal;
+    background-color: beige;
+}
+
+td {
+    padding: 5px 10px;
+}
+
+input {
+    margin: 5px 0px;
+}
+
+#header {
+    text-align: right;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+}
+
+#join {
+    height: 100px;
+
+}
+
+#join td {
+    text-align: center;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: hidden;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red {
+    color: red;
+}
+
+#address {
+    width: 435px;
+}
+
+#addressdetail {
+    width: 300px;
+}
