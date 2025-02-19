@@ -29,6 +29,8 @@ order by hr$ desc)
 where rownum <= 5;
 ```
 
+![oracle_single row function_q1 result](/images/oracle q1 result.png)
+
 ## Q2. 15~25위 ranking 조회
 
 ### 코드
