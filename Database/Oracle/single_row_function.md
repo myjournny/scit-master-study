@@ -51,6 +51,9 @@ order by 시급$ desc))
 where rank between 15 and 25;
 ```
 
+![oracle_single row function_q2 result](/images/oracle_singlerow_q2_result.png)
+
+
 ## Q3. 최저 시급기준으로 ranking 조회(5~8위, 3위, 13위, 23위)
 ### 코드
 ```sql
@@ -70,6 +73,8 @@ order by 시급 desc))
 where rank = 3 or rank between 5 and 8 or rank = 13 or rank = 23;
 ```
 
+![oracle_single row function_q3 result](/images/oracle_singlerow_q3_result.png)
+
 ## Q4. hr의 employees를 활용하여 가장 입사를 많이 한 요일정보를 확인하세요.
 ### 코드
 ```sql
@@ -81,6 +86,8 @@ group by to_char(hire_date,'day')
 order by 2 desc;
 ```
 
+![oracle_single row function_q4 result](/images/oracle_singlerow_q4_result.png)
+
 ## Q5. hr.employees를 활용하여 하기 요구사항을 출력하세요.
 *salary 기준으로 ranking 출력하되 각 부서별로 순위를 부여하세요.
 ```sql
@@ -91,6 +98,8 @@ row_number() over(partition by department_id order by salary desc) as rownumber_
 from employees
 order by department_id asc, salary desc;
 ```
+
+![oracle_single row function_q5 result](/images/oracle_singlerow_q5_result.png)
 
 ## Q6. hr.employees를 활용하여 하기 요구사항을 출력하세요.
 *요구사항-1: 30번과 50번 부서 소속 직원에서 급여 10% 인상
@@ -114,6 +123,8 @@ select
 from employees
 order by salary desc;
 
+![oracle_single row function_q6 result1](/images/oracle_singlerow_q6_result1.png)
+
 2) 인상된 직원 set 출력
 select
     first_name,
@@ -124,3 +135,5 @@ from employees
 where department_id in(30,50)
 order by salary desc;
 ```
+
+![oracle_single row function_q6 result2](/images/oracle_singlerow_q6_result2.png)
