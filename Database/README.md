@@ -5,7 +5,7 @@ Period & Score
 ---------
 - Study Period: 2024/09/20 ~ 2024/10/07
 - Assessment: 88/100 (Pass) - 2024/11/01
-
+![Database_exam_result](/images/Database_exam_result.png)
 Main Study Contents
 ---------
 ### 1. Oracle Database
