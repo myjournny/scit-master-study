@@ -1,0 +1,200 @@
+# MySQL 다행 함수 실습
+
+MySQL의 다행 함수를 활용한 다양한 실습 기록입니다.
+
+## Q1. 각 국가별 도시의 개수가 몇 개 있는지 확인하고, 보유 도시 수 기준으로 TOP 15를 조회하세요.
+  - 조회내용에서 총계 산출도 추가해서 조회해 보세요.
+
+```sql
+select countrycode, count(*) from city
+group by countrycode with rollup
+order by count(*) desc
+limit 16;
+```
+
+![mysql multiplerow q1 result](/images/mysql_multiplerow_q1_result.png)
+
+## Q2. 인구가 200만명이 넘는 도시는 각 구가별로 몇 개인지 확인하세요.
+  - 조회내용에서 200만명이 넘는 도시를 4개 이상 보유하고 있는 국가는 어디인지 확인하세요.
+
+```sql
+select countrycode, count(*) from city
+where population > 2000000
+group by countrycode
+having count(*) >= 4
+order by count(*) desc;
+```
+
+![mysql multiplerow q2 result](/images/mysql_multiplerow_q2_result.png)
+
+## Q3. 독립년도 정보가 있는 국가와 없는 국가 수는 어떻게 되는지 조회하세요.
+
+```sql
+select count(*) as 총국가수,
+count(case when indepyear is null then 1 end) as'독립년도가 없는 국가',
+count(case when indepyear is not null then 1 end) as '독립년도가 있는 국가' from country;
+```
+
+![mysql multiplerow q3 result](/images/mysql_multiplerow_q3_result.png)
+
+## Q4. 2004~2013년(10년간) 까지 년도별 개봉한 영화 수와 각 년도별 상/하반기 개봉한 영화 수 또는 요일별 개봉영화수를 확인하시오.
+  - 정렬: 년도별 오름차순, 총 결산 표기
+```sql
+select year(release_date) as "년도", format(count(*),0) as "년도별 개봉영화수",
+count(case when month(release_date) <= 6 then 1 end) as "상반기 개봉영화 수",
+count(case when month(release_date) > 6 then 1 end) as "하반기 개봉영화 수"
+from box_office
+where year(release_date) between 2004 and 2013
+group by year(release_date) with rollup
+order by year(release_date);
+```
+
+![mysql join q4 result](/images/mysql_join_q4_result.png)
+
+```sql
+select year(release_date) as "년도", 
+format(count(*),0) as "년도별 개봉영화 수",
+-- format(count(*),0) as "개봉영화수" release_date, 
+sum(case date_format(release_date, '%w') when 0 then 1 else 0 end) as "일-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "월-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "화-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "수-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "목-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "금-개봉",
+sum(case date_format(release_date, '%w') when 1 then 1 else 0 end) as "토-개봉"
+from box_office
+where year(release_date) between 2004 and 2013
+group by year(release_date) with rollup
+order by 1;
+```
+
+![mysql join q4 result2](/images/mysql_join_q4_result2.png)
+
+## Q5. 2016년 개봉한 영화 배급사 정보조회?
+    단, 배급사의 총 매출액 산출 시, 개별영화 매출 2억 미만은 제외한 총 매출이 100억~1,500억에 해당하는 배급사만 조회
+    
+```sql
+select distributor as 배급사, format(count(*),0) as '총개봉_영화수_2016',
+concat(format(round(sum(sale_amt)/pow(10,8)),0),'억') as "매출-2016",
+sum(case quarter(release_date) when 1 then 1 else 0 end) as Q1,
+sum(case quarter(release_date) when 2 then 1 else 0 end) as Q2,
+sum(case quarter(release_date) when 3 then 1 else 0 end) as Q3,
+sum(case quarter(release_date) when 4 then 1 else 0 end) as Q4
+from box_office
+where year(release_date) = 2016 and sale_amt > 2*pow(10,8)
+group by distributor
+having sum(sale_amt)/pow(10,8) between 100 and 1500
+order by sum(sale_amt) desc;
+```
+
+![mysql multiplerow q5 result](/images/mysql_multiplerow_q5_result.png)
+
+## Q6. 영화유형별 매출을 하기와 같이 출력하세요.
+    
+```sql
+select
+CASE
+WHEN GROUPING(movie_type) = 1 THEN '총계' 
+ELSE movie_type
+END AS 영화유형,
+concat(format(round(sum(sale_amt) / pow(10,8)),0),'억')  as 매출
+from box_office
+group by movie_type with rollup
+order by sum(sale_amt) desc;
+```
+
+![mysql multiplerow q6 result](/images/mysql_multiplerow_q6_result.png)
+
+## Q7. 대륙별 면적크기, 인구수, 국가수를 조회하여 하기 물음에 답하시오.
+    1)가장 면적이 큰 대륙은 어디인가요? Asia
+    
+```sql
+select continent, sum(surfaceArea) from country
+group by continent
+order by 2 desc;
+```
+
+![mysql multiplerow q7 result](/images/mysql_multiplerow_q7 _result.png)
+
+    1) 가장 면적이 큰 대륙은 어디인가요? Asia
+    
+```sql
+select continent, sum(surfaceArea) from country
+group by continent
+order by 2 desc;
+```
+
+![mysql multiplerow q7 result](/images/mysql_multiplerow_q7 _result.png)
+
+    2) 가장 인구가 많은 대륙은 어디인가요? Asia
+    
+```sql
+select continent, sum(population) from country
+group by continent
+order by 2 desc;
+```
+
+![mysql multiplerow q7 result2](/images/mysql_multiplerow_q7 _result2.png)
+
+    3) 가장 국가가 많은 대륙은 어디인가요? Africa
+    
+```sql
+select continent, count(name) from country
+group by continent
+order by 2 desc;
+```
+
+![mysql multiplerow q7 result3](/images/mysql_multiplerow_q7 _result3.png)
+
+   4) 인구가 가장 적은 대륙은 어디인가요?  Antaractica
+    
+```sql
+select continent, sum(population) from country
+group by continent
+order by 2;
+```
+
+![mysql multiplerow q7 result4](/images/mysql_multiplerow_q7 _result4.png)
+
+## Q8. 2010~2019년까지 년도별 국가별 관객수를 비교분석하세요.
+  (대상국가: 한국, 미국, 일본, 영국, 프랑스, 독일)
+
+```sql
+select 
+year(release_date) as 년도,
+format(sum(audience_num),0) as '총 관객수',
+format(sum(case when rep_country = '한국' then audience_num end),0) as '한국관객',
+format(sum(case when rep_country = '미국' then audience_num end),0) as '미국관객',
+format(sum(case when rep_country = '일본' then audience_num end),0) as '일본관객',
+format(sum(case when rep_country = '영국' then audience_num end),0) as '영국관객',
+format(sum(case when rep_country = '프랑스' then audience_num end),0) as '프랑스관객',
+format(sum(case when rep_country = '독일' then audience_num end),0) as '독일관객'
+from box_office
+where year(release_date) between 2010 and 2019
+group by year(release_date)
+order by year(release_date) desc;
+```
+
+![mysql multiplerow q8 result](/images/mysql_multiplerow_q8_result.png)
+
+## Q9. 년도별로 국가별(한국, 미국)로 100명 이상의 관객이 보았던 영화는 몇 번 있었는지 확인하시오.
+    (단, 2015년 이후 개봉 영화 대상)
+
+```sql
+select 
+year(release_date) as 년도,
+sum(case when audience_num >= pow(10,6) then 1 else 0 end) as '100만명 이상 영화수',
+sum(case when audience_num >= pow(10,6) and rep_country = '한국' then 1 else 0 end) as '한국횟수',
+sum(case when audience_num >= pow(10,6) and rep_country = '미국' then 1 else 0 end) as '미국횟수'
+from box_office
+where year(release_date) >= 2015
+group by year(release_date)
+having sum(case when audience_num >= pow(10,6) then 1 else 0 end) > 0
+order by year(release_date);
+```
+
+![mysql multiplerow q9 result](/images/mysql_multiplerow_q9_result.png)
+
+
+
+
