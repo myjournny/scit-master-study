@@ -20,6 +20,6 @@
 
 ### 2. Spring
 - Todolist (Jquery)
-- 방명록 (AJAX)
+- 독서 노트 (AJAX)
 - 로그인 (Security)
 - 게시판
