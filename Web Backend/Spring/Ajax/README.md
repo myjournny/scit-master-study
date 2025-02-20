@@ -32,14 +32,18 @@ jQuery와 Ajax를 활용한 개인 독서 노트 관리 웹 화면 실습 코드
 - **jQuery**: Ajax 통신 및 이벤트 처리
 
 ## 실행 화면
-- **메인 화면**  
+- **메인 화면**
+  
 ![readingnote result](/images/readingnote_result.jpg)
 
 - **구매도서 등록 화면**  
+
 ![readingnote result2](/images/readingnote_result2.jpg)
 
 - **독서 노트 등록 화면**
+
 ![readingnote result3](/images/readingnote_result3.jpg)
 
 - **독서 노트 보기 화면**
+
 ![readingnote result4](/images/readingnote_result4.jpg)
