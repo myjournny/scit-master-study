@@ -38,7 +38,7 @@ Spring Security와 JPA를 활용한 회원제 게시판 프로젝트입니다.
   - 회원: join, login, mypage, myinfoupdate
   - 관리자: adminpage
 
-### 개발 환경
+## 개발 환경
 - Java 17
 - Spring Boot 3.2.1
 - Spring Security 6.2.1
