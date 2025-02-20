@@ -47,3 +47,5 @@ Spring Security와 JPA를 활용한 회원제 게시판 프로젝트입니다.
 - jQuery 3.7.1
 
 ## 실행 영상
+
+![board](/images/board.gif)
