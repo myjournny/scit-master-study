@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독서노트</title>
+</head>
+
+<body>
+    <div class="top">
+    	<a th:href="@{/}">
+    		<img th:src="@{/images/icon.png}">
+    	</a>
+        <h2>[ 독서 노트 보기 ]</h2>
+        
+        <div>
+        <table border="1">
+        	<tr>
+        		<th>일련번호</th>
+        		<th>책 제목</th>
+        		<th>저자</th>
+        		<th>출판사</th>
+        		<th>읽은 날</th>
+        		<th>독서평</th>
+        	</tr>
+        	<tr th:each="book, status: ${list}">
+        		<td th:text="${status.count}"></td>
+        		<td th:text="${book.bookDTO.title}"></td>
+        		<td th:text="${book.bookDTO.writer}"></td>
+        		<td th:text="${book.bookDTO.publisher}"></td>
+        		<td th:text="${book.readDate}"></td>
+        		<td th:text="${book.bookReview}"></td>
+        	</tr>
+        </table>
+        </div>
+     
+    </div>
+</body>
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독서노트</title>
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script>
+    	$(function(){
+    		init();
+    		$('#bookRegist').on('click', regist);
+    		$('#searchButton').on('click', searchBooks); 
+    	});
+    	
+    	// 초기화 함수
+    	function init() {
+    		$.ajax({
+    			url: "/book/bookList"
+    			, method: "GET"
+    			, success : output
+    		})
+    	} 
+    	
+    	// 도서 목록 출력
+    	function output(resp) {
+    		console.log(resp);
+    		let tag = `
+    			<table border="1">
+	    			<tr>
+	    				<th>일련번호</th>
+		    			<th>책 제목</th>
+		    			<th>책 저자</th> 
+		    			<th>출판사</th>
+		    			<th>책 구매일</th>
+		    			<th>책 가격</th>
+		    			<th></th>
+	    			</tr>
+    		`;
+    		$.each(resp, function(index, book) {
+    			tag += `
+    			<tr>
+    				<td>${index+1}</td>
+	    			<td><a href="/reading/readingWrite?bookSeq=${book.bookSeq}">${book.title}</a></td>
+	    			<td>${book.writer}</td> 
+	    			<td>${book.publisher}</td>
+	    			<td>${book.purchaseDate}</td>
+	    			<td>${book.price}</td>
+	    			<td>
+	    				<input type="button" class="deleteBtn" data-bookSeq="${book.bookSeq}" value="삭제">
+	    			</td>
+    			</tr>
+    			`;
+    		});
+    		tag += '</table>';
+    		$('#bookTarget').html(tag);
+    		$('.deleteBtn').on('click', bookDelete);
+    		
+    	}
+    	
+    	function bookDelete() {
+    		let bookSeq = $(this).attr('data-bookSeq');
+		    let answer = confirm("정말 지우시겠습니까?");
+		    if (!answer) return;
+    		$.ajax({
+    	        url: '/book/bookDelete',
+    	        type: 'GET',
+    	        data: { "bookSeq": bookSeq },
+    	        success: init
+    	    });		 
+    
+    	}
+    	
+    	// 구매한 책 등록
+    	function regist() {
+    		// 정보 수집
+    		let title = $('#title').val();
+    		let writer = $('#writer').val();
+    		let publisher = $('#publisher').val();
+    		let purchaseDate = $('#purchaseDate').val();
+    		let price = $('#price').val();
+    		
+    		// 전송 데이터 작성
+    		let sendData = {"title": title
+    				, "writer": writer
+    				, "publisher": publisher
+    				, "purchaseDate": purchaseDate
+    				, "price": price};
+    		let url = $('#bookRegistForm').attr('action');
+
+    		$.ajax({
+    			url: url
+    			, method : 'POST'
+    			, data : sendData
+    			, success : init
+    		});
+    	}
+    	
+    	function searchBooks() {
+    	    const searchItem = $('#searchItem').val(); // 검색 기준
+    	    const searchWord = $('#searchWord').val(); // 검색어
+
+    	    if (!searchWord.trim()) {
+    	        alert("검색어를 입력하세요.");
+    	        return;
+    	    }
+
+    	    $.ajax({
+    	        url: "/book/search", // 검색 요청 URL
+    	        method: "GET",
+    	        data: { searchItem, searchWord }, // 검색 기준과 검색어 전달
+    	        success: output, // 검색 결과 출력
+    	        error: function () {
+    	            alert("검색 중 오류가 발생했습니다.");
+    	        }
+    	    });
+    	}
+    </script>
+</head>
+
+<body>
+    <div class="top">
+    	<a th:href="@{/}">
+    		<img th:src="@{/images/icon.png}">
+    	</a>
+        <h2>[ 구매도서 등록 ]</h2>
+    </div>
+    <div>
+    	<form th:action="@{/book/bookRegist}" method="post" id="bookRegistForm">
+    	<table border="1">
+    		<tr>
+    			<th>책 제목</th>
+    			<td><input type="text" name="title" id="title"></td>
+    		</tr>
+    		<tr>
+    			<th>책 저자</th> 
+    			<td><input type="text" name="writer" id="writer"></td>
+    		</tr>
+    		<tr>
+    			<th>출판사</th>
+    			<td><input type="text" name="publisher" id="publisher"></td>
+    		</tr>
+    		<tr>
+    			<th>책 구매일</th>
+    			<td><input type="date" name="purchaseDate" id="purchaseDate"></td>
+    		</tr>
+    		<tr>
+    			<th>책 가격</th>
+    			<td><input type="number" name="price" id="price"></td>
+    		</tr>
+    		<tr>
+    			<th colspan="2">
+    				<input type="button" id="bookRegist" value="책 등록">
+    			</th>
+    		</tr>
+    	</table>
+    	</form>
+    </div>
+    <div>
+    	<select id="searchItem">
+    	    <option value="title">제목</option>
+	        <option value="writer">저자</option>
+        	<option value="publisher">출판사</option>
+    	</select>
+    	<input type="text" id="searchWord" placeholder="검색어를 입력하세요">
+    	<button id="searchButton">검색</button>
+	</div>
+	<hr>
+	<div id="bookTarget"></div>
+    <!-- ajax를 이용해서 현재까지 구매한 모든 책 목록이 아래 출력 -->
+    <!-- 번호 / 책 제목(링크) / 구매일 / 구매가격  -->
+    <div id="bookTarget"></div>
+    
+</body>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독서노트</title>
+</head>
+
+<body>
+    <div class="top">
+    	<a th:href="@{/}">
+    		<img th:src="@{/images/icon.png}">
+    	</a>
+        <h2>[ 독서 노트 등록 ]</h2>
+    </div>
+    <div>
+    	<form th:action="@{/reading/readingWrite}" method="post" >
+    	<input type="hidden" th:value="${book.bookSeq}" name="bookSeq">
+    	<table border="1">
+    		<tr>
+    			<th>책 제목</th>
+    			<td><span th:text="${book.title}"></span></td>
+    		</tr>
+    		<tr>
+    			<th>책 저자</th> 
+    			<td><span th:text="${book.writer}"></span></td>
+    		</tr>
+    		
+    		<tr>
+    			<th>상태</th> 
+    			<td>
+    				<input type="radio" name="readStatus" value="읽는 중" checked>읽는 중 &nbsp;
+    				<input type="radio" name="readStatus" value="읽음">읽음
+    			</td>
+    		</tr>    		
+    		
+     		<tr>
+    			<th>읽기 시작한 날짜</th> 
+    			<td>
+    				<input type="date" name="readDate" >
+    			</td>
+    		</tr>    		
+     		<tr>
+    			<th>독서평</th> 
+    			<td>
+    				<textarea cols="50" rows="10" name="bookReview"></textarea>
+    			</td>
+    		</tr>    		
+    		<tr>
+    			<th colspan="2">
+    				<input type="submit" value="독서평 등록">
+    			</th>
+    		</tr>
+    	</table>
+    	</form>
+    </div>
+    
+    <hr> 
+    <!-- ajax를 이용해서 현재까지 구매한 모든 책 목록이 아래 출력 -->
+    <!-- 번호 / 책 제목(링크) / 구매일 / 구매가격  -->
+    <div id="bookTarget"></div>
+    
+</body>
+
