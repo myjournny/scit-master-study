@@ -37,5 +37,6 @@ Built full-stack web applications using Spring Boot with:
 
 ## 🛠️ Notes
 
-This backend study is part of a full-time web development training program provided by  
-**KITA (Korea International Trade Association)**, focusing on practical backend development using Java and Spring Boot.
+This study is part of a full-time full-stack web development training program provided by **KITA (Korea International Trade Association)**.  
+It focused on backend development using Java and Spring Boot, and aimed to build real-world web applications with authentication and CRUD features.
+
