@@ -1,25 +1,41 @@
-# Web Backend Study
+# 💻 Web Backend Study
 
-## Period & Score
-### 1. JAVA
-- 학습 기간: 2024/10/08 ~ 2024/11/08
-- 평가 결과: 84/100 (Pass) - 2024/11/08 
+## 🗓️ Period & Score
+
+### 1. Java
+- Study Period: 2024/10/08 – 2024/11/08  
+- Evaluation Score: 84/100 (Pass) – 2024/11/08  
 ![java_exam_result](/images/java_exam_result.png)
 
 ### 2. Spring
-- 학습 기간: 2024/11/25 ~ 2025/01/24
-- 평가 결과: 100/100 (Pass) - 2025/01/24
+- Study Period: 2024/11/25 – 2025/01/24  
+- Evaluation Score: 100/100 (Pass) – 2025/01/24  
 ![it_exam_result](/images/it_exam_result.png)
 
-## Contents
+---
+
+## 📌 Contents
 
 ### 1. Java
-- 극장 예제 (Array)
-- 게임 예제 (Interface)
-- 유저관리 예제 (Collection)
+
+Implemented basic object-oriented programs using:
+- 🎟️ Theater booking simulation (Array)
+- 🎮 Game logic implementation (Interface)
+- 👤 User management system (Collection Framework)
+
+---
 
 ### 2. Spring
-- Todolist (Jquery)
-- 독서 노트 (AJAX)
-- 로그인 (Security)
-- 게시판
+
+Built full-stack web applications using Spring Boot with:
+- ✅ To-do List with jQuery (task creation, update, and delete)
+- 📚 Reading Note App using AJAX (asynchronous data handling)
+- 🔐 Login System with Spring Security (session and authentication)
+- 📝 Bulletin Board (CRUD operations, pagination, session handling)
+
+---
+
+## 🛠️ Notes
+
+This backend study is part of a full-time web development training program provided by  
+**KITA (Korea International Trade Association)**, focusing on practical backend development using Java and Spring Boot.
