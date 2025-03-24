@@ -34,6 +34,5 @@
 
 ## 💬 Notes
 
-This frontend training was part of a full-time web development program provided by  
-**KITA (Korea International Trade Association)**.  
-It focused on building interactive and responsive forms using HTML, CSS, and JavaScript.
+This study is part of a full-time full-stack web development training program provided by **KITA (Korea International Trade Association)**.  
+It focused on frontend form design and interactivity using HTML, CSS, and JavaScript, and aimed to enhance UI/UX skills through hands-on projects.
