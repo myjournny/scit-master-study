@@ -1,33 +1,50 @@
-# Database Study
+# 📚 Database Study
 
-## Period & Score
-- 학습 기간: 2024/09/20 ~ 2024/10/07
-- 평가 결과: 88/100 (Pass) - 2024/11/01
+## 🗓️ Period & Score
+- **Study Period**: 2024/09/20 – 2024/10/07  
+- **Evaluation Score**: 88/100 (Pass) – 2024/11/01  
 ![Database_exam_result](/images/Database_exam_result.png)
 
-## Contents
+---
 
-### 1. Oracle 실습
-- 단일행 함수
-  - 시급 기준 순위 분석
-  - 입사일 기준 통계 분석
-  - 조건부 급여 인상 시뮬레이션
-- JOIN 연산
-  - 다중 테이블 조인을 통한 데이터 통합
-  - OUTER JOIN을 활용한 누락 데이터 분석
-  - 그룹별 집계 및 통계
+## 📌 Contents
 
-### 2. MySQL 실습
-- 데이터베이스 관리
-  - 국가별 도시 정보 분석
-  - 언어 사용 현황 분석
-  - 지역별 통계 분석
-- 데이터베이스 객체 관리
-  - 뷰 생성 및 활용
-  - 인덱스 설계 및 최적화
+### 1. Oracle Practice
 
-### 3. 데이터베이스 모델링
-- E-커머스 플랫폼 설계
-  - ERD 작성
-  - 테이블 정의서 작성
-  - 제약조건 설계
+#### 🔹 Single-Row Functions
+- Analyzed employee ranking based on hourly wage
+- Generated statistical summaries using hire date
+- Simulated conditional salary increases using CASE statements
+
+#### 🔹 JOIN Operations
+- Integrated data across multiple tables using JOINs
+- Identified missing data using OUTER JOINs
+- Performed group-based aggregation and statistical analysis
+
+---
+
+### 2. MySQL Practice
+
+#### 🔹 Database Management
+- Analyzed city information by country
+- Explored language usage and regional statistics
+- Practiced real-world data analysis using SELECT, GROUP BY, and HAVING
+
+#### 🔹 Database Object Management
+- Created and utilized views for logical abstraction
+- Designed and optimized indexes for performance tuning
+
+---
+
+### 3. Database Modeling
+
+#### 🔹 E-commerce Platform Schema Design
+- Created ER diagrams for an e-commerce system
+- Wrote detailed table definitions
+- Designed keys and constraints to ensure data integrity
+
+---
+
+## 💬 Notes
+This study is part of a full-time full-stack web development program supported by the Korean government.  
+It focused on practical SQL skills with both Oracle and MySQL, as well as fundamental data modeling techniques.
