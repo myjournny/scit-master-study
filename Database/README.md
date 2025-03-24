@@ -46,5 +46,6 @@
 ---
 
 ## 💬 Notes
-This study is part of a full-time full-stack web development program provided by KITA (Korea International Trade Association).
-It focused on practical SQL skills with both Oracle and MySQL, as well as fundamental data modeling techniques.
+This study is part of a full-time full-stack web development training program provided by  
+**KITA (Korea International Trade Association)**.  
+It focused on practical SQL skills using Oracle and MySQL, and aimed to build strong foundations in relational database design and data modeling.
